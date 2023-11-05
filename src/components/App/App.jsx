@@ -16,7 +16,15 @@ export class App extends Component {
   };
 
   addContact = contact => {
-    //console.log(value);
+    //перевірка на наявність
+    if (
+      this.state.contacts.find(
+        item => item.name.toLowerCase() === contact.name.toLowerCase()
+      )
+    ) {
+      return alert(`${contact.name} is already in cintacts`);
+    }
+    //якщо контакту ще немає
     this.setState(preventState => {
       return {
         contacts: [...preventState.contacts, { ...contact, id: nanoid() }],
