@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import { AddForm } from 'components/AddForm/AddForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
