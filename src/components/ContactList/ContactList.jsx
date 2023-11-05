@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 export const ContactList = ({ list }) => {
-  console.log(list);
   return (
     <ul>
       {list.map(contact => (
