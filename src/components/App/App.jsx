@@ -3,6 +3,7 @@ import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
+import { Wrapper } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -36,6 +37,16 @@ export class App extends Component {
     this.setState({ filter: value });
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(
+          contact => contact.id !== contactId
+        ),
+      };
+    });
+  };
+
   render() {
     const { filter, contacts } = this.state;
 
@@ -45,22 +56,16 @@ export class App extends Component {
     });
 
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
+      <Wrapper>
         <h1>Phonebook</h1>
         <AddForm onSubmit={this.addContact}></AddForm>
         <h2>Contacts</h2>
         <Filter toFilter={this.toFilter}></Filter>
-        <ContactList list={filteredContacts}></ContactList>
-      </div>
+        <ContactList
+          list={filteredContacts}
+          onDelete={this.deleteContact}
+        ></ContactList>
+      </Wrapper>
     );
   }
 }
