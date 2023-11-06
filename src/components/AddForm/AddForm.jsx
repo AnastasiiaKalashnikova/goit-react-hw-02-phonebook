@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 const Schema = Yup.object().shape({
   name: Yup.string().min(2).required('must be filled'),
-  number: Yup.number().required('must be filled'),
+  number: Yup.number('not a number').required('must be filled'),
 });
 
 export const AddForm = ({ onSubmit }) => {
