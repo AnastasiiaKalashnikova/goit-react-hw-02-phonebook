@@ -58,13 +58,13 @@ export class App extends Component {
     return (
       <Wrapper>
         <h1>Phonebook</h1>
-        <AddForm onSubmit={this.addContact}></AddForm>
+        <AddForm onSubmit={this.addContact}/>
         <h2>Contacts</h2>
-        <Filter toFilter={this.toFilter}></Filter>
+        <Filter toFilter={this.toFilter}/>
         <ContactList
           list={filteredContacts}
           onDelete={this.deleteContact}
-        ></ContactList>
+        />
       </Wrapper>
     );
   }
